@@ -238,12 +238,39 @@ namespace Lab1
 
 			//	===============
 			//	    Функции
-			//	===============]
+			//	===============
 			int[] arr4 = { 1, 3, 2, 5 };
 			Tuple<int, int, int, char> FuncRes = Func1(arr4, "KONO DIO DA");
-			Console.Write($"min: {FuncRes.Item1}\t max: {FuncRes.Item2}\tsum: {FuncRes.Item3}\tfirst char: {FuncRes.Item4}\n");
+			int int1, int2, int3;
+			char char1;
+			(int1, int2, int3, char1) = FuncRes; // Распаков очка
 
-			Console.Write("\n");
+			Console.Write($"min: {int1}\t max: {int2}\tsum: {int3}\tfirst char: {char1}\n");
+
+			//	===============
+			// Checked/Unchecked
+			//	===============
+			try
+			{
+				checked
+				{
+					int a = int.MaxValue;
+					a = a + 1;
+					Console.WriteLine(a);
+				}
+			} catch (Exception e)
+            {
+				Console.WriteLine($"\nChecked overflow");
+            }
+			try
+			{
+				int b = unchecked(int.MaxValue + 1);
+				Console.WriteLine(b);
+			} catch (Exception e)
+            {
+				Console.WriteLine($"\nUnchecked overflow");
+            }
+	Console.Write("\n");
 			Console.Write("Press any key to continue . . . ");
 			Console.ReadKey(true);
 
